@@ -48,20 +48,16 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative w-14 h-14 flex-shrink-0">
+              <div className="relative flex-shrink-0">
                 <img
-                  src="https://duxdomus.rs/uploads/sredina/tb_1.jpg"
+                  src="https://duxdomus.rs/img/logo.png"
                   alt="Dux Domus"
-                  className="w-full h-full object-cover rounded-full border-2 border-[#1e5f9e] group-hover:border-[#28a8e0] transition-colors duration-300"
+                  className="h-14 w-auto object-contain"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
                   }}
                 />
-                <div style={{display:'none'}} className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1e5f9e] to-[#28a8e0] flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">DD</span>
-                </div>
               </div>
               <div>
                 <div className="font-bold text-xl text-[#0a2d5e] tracking-wide leading-tight">DUX DOMUS</div>
