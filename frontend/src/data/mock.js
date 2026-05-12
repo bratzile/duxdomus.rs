@@ -20,6 +20,7 @@ export const companyInfo = {
 };
 
 export const navLinks = [
+  { label: 'Početna', href: '/' },
   { label: 'Usluge', href: '/usluge' },
   { label: 'Stambene zgrade', href: '/stambene-zgrade' },
   { label: 'Blog', href: '/blog' },
