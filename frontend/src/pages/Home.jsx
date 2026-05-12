@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import {
   ChevronRight, ChevronLeft, CheckCircle2, ArrowRight, Phone,
   Building2, X, Send, CheckCircle, Tag, Users, BookOpen
 } from 'lucide-react';
-import { heroSlides, features, stats, managerDuties, aboutText, faq, companyInfo, pricing, blogPosts } from '../data/mock';
+import * as mock from '../data/mock';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 // Animated counter
 const useCounter = (target, duration = 1800, active = false) => {
@@ -213,7 +217,25 @@ const Home = () => {
   const [statsActive, setStatsActive] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
   const [showQuote, setShowQuote] = useState(false);
+  const [content, setContent] = useState(null);
+  const [blogPosts, setBlogPosts] = useState([]);
   const statsRef = useRef(null);
+
+  // Resolved data (API or mock fallback)
+  const heroSlides = content?.hero_slides || mock.heroSlides;
+  const features = mock.features; // Keep using stock images from mock
+  const stats = content?.stats || mock.stats;
+  const managerDuties = content?.manager_duties || mock.managerDuties;
+  const aboutText = content?.about_text || mock.aboutText;
+  const aboutImage = content?.about_image || 'https://images.unsplash.com/photo-1594484208280-efa00f96fc21?w=600&q=80';
+  const faq = content?.faqs || mock.faq;
+  const pricing = content?.pricing || mock.pricing;
+  const companyInfo = content?.company_info || mock.companyInfo;
+
+  useEffect(() => {
+    axios.get(`${API}/content`).then(r => setContent(r.data)).catch(() => {});
+    axios.get(`${API}/blog`).then(r => setBlogPosts(r.data)).catch(() => setBlogPosts(mock.blogPosts));
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setCurrentSlide((p) => (p + 1) % heroSlides.length), 6000);

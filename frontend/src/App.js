@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route, useParams, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams, useLocation, Navigate } from "react-router-dom";
 import { useEffect } from "react";
+import { AdminProvider, useAdmin } from "./contexts/AdminContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -12,45 +13,74 @@ import ResidentialBuildings from "./pages/ResidentialBuildings";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import Referral from "./pages/Referral";
+import AdminLogin from "./admin/AdminLogin";
+import AdminLayout from "./admin/AdminLayout";
+import AdminDashboard from "./admin/AdminDashboard";
+import AdminBlog from "./admin/AdminBlog";
+import AdminContent from "./admin/AdminContent";
 
-// Scroll to top on every route change
+// Scroll to top on route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [pathname]);
+  useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [pathname]);
   return null;
 };
 
+// Blog post route
 const BlogPostRoute = () => {
   const { slug } = useParams();
   return <Blog slug={slug} />;
 };
 
+// Protected admin route
+const ProtectedAdmin = ({ children }) => {
+  const { isAuthenticated, loading } = useAdmin();
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="w-8 h-8 border-2 border-[#28a8e0]/30 border-t-[#28a8e0] rounded-full animate-spin" />
+    </div>
+  );
+  if (!isAuthenticated) return <Navigate to="/admin/login" replace />;
+  return <AdminLayout>{children}</AdminLayout>;
+};
+
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <ScrollToTop />
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/usluge" element={<Services />} />
-              <Route path="/saradnici" element={<Partners />} />
-              <Route path="/dokumenta" element={<Documents />} />
-              <Route path="/stambene-zgrade" element={<ResidentialBuildings />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPostRoute />} />
-              <Route path="/saradnja" element={<Referral />} />
-              <Route path="/kontakt" element={<Contact />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </div>
+    <AdminProvider>
+      <div className="App">
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            {/* Admin routes — no Navbar/Footer */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<ProtectedAdmin><AdminDashboard /></ProtectedAdmin>} />
+            <Route path="/admin/blog" element={<ProtectedAdmin><AdminBlog /></ProtectedAdmin>} />
+            <Route path="/admin/content" element={<ProtectedAdmin><AdminContent /></ProtectedAdmin>} />
+
+            {/* Public routes */}
+            <Route path="*" element={
+              <div className="flex flex-col min-h-screen">
+                <Navbar />
+                <main className="flex-1">
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/usluge" element={<Services />} />
+                    <Route path="/saradnici" element={<Partners />} />
+                    <Route path="/dokumenta" element={<Documents />} />
+                    <Route path="/stambene-zgrade" element={<ResidentialBuildings />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/blog/:slug" element={<BlogPostRoute />} />
+                    <Route path="/saradnja" element={<Referral />} />
+                    <Route path="/kontakt" element={<Contact />} />
+                  </Routes>
+                </main>
+                <Footer />
+              </div>
+            } />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </AdminProvider>
   );
 }
 

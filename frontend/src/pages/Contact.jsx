@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, MapPin, Mail, Clock, User, Send, CheckCircle2 } from 'lucide-react';
-import { companyInfo } from '../data/mock';
+import { companyInfo as mockCompanyInfo } from '../data/mock';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Contact = () => {
+  const [companyInfo, setCompanyInfo] = useState(mockCompanyInfo);
+
+  useEffect(() => {
+    axios.get(`${API}/content`)
+      .then(r => { if (r.data.company_info) setCompanyInfo(r.data.company_info); })
+      .catch(() => {});
+  }, []);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
