@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -9,6 +9,13 @@ import Partners from "./pages/Partners";
 import Documents from "./pages/Documents";
 import ResidentialBuildings from "./pages/ResidentialBuildings";
 import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
+import Referral from "./pages/Referral";
+
+const BlogPostRoute = () => {
+  const { slug } = useParams();
+  return <Blog slug={slug} />;
+};
 
 function App() {
   return (
@@ -23,6 +30,9 @@ function App() {
               <Route path="/saradnici" element={<Partners />} />
               <Route path="/dokumenta" element={<Documents />} />
               <Route path="/stambene-zgrade" element={<ResidentialBuildings />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPostRoute />} />
+              <Route path="/saradnja" element={<Referral />} />
               <Route path="/kontakt" element={<Contact />} />
             </Routes>
           </main>

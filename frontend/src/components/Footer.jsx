@@ -33,7 +33,7 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-[#28a8e0] text-xs uppercase tracking-widest mb-5">Navigacija</h3>
             <ul className="space-y-2.5">
-              {navLinks.map((link) => (
+              {[...navLinks, { label: 'Postanite saradnik', href: '/saradnja' }].map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}

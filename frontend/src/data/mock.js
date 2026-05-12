@@ -25,45 +25,47 @@ export const navLinks = [
   { label: 'Saradnici', href: '/saradnici' },
   { label: 'Dokumenta', href: '/dokumenta' },
   { label: 'Stambene zgrade', href: '/stambene-zgrade' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Kontakt', href: '/kontakt' }
 ];
 
 export const heroSlides = [
   {
     id: 1,
-    image: 'https://duxdomus.rs/uploads/slider/1.jpg',
+    image: 'https://images.unsplash.com/photo-1612637968894-660373e23b03?w=1920&q=80',
     title: 'Profesionalni upravnik stambenih zgrada',
-    subtitle: 'u Nišu - 350 stambenih jedinica',
-    fallback: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=60'
+    subtitle: 'u Nišu — 350 stambenih jedinica'
   },
   {
     id: 2,
-    image: 'https://duxdomus.rs/uploads/slider/2.jpg',
+    image: 'https://images.unsplash.com/photo-1594484208280-efa00f96fc21?w=1920&q=80',
     title: 'Briga o Vašoj zgradi',
-    subtitle: 'Pouzdano i profesionalno upravljanje',
-    fallback: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=60'
+    subtitle: 'Pouzdano i profesionalno upravljanje od 2012.'
+  },
+  {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1515263487990-61b07816b324?w=1920&q=80',
+    title: 'Transparentnost i efikasnost',
+    subtitle: 'Jasni troškovi — bez skrivenih naknada'
   }
 ];
 
 export const features = [
   {
     id: 1,
-    image: 'https://duxdomus.rs/uploads/sredina/tb_1.jpg',
-    fallback: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&q=60',
+    image: 'https://images.unsplash.com/photo-1624204386084-dd8c05e32226?w=600&q=80',
     title: 'Briga o Vašoj zgradi',
     description: 'Redovni obilaski i rešavanje svih problema u zgradi'
   },
   {
     id: 2,
-    image: 'https://duxdomus.rs/uploads/sredina/tb_2.jpg',
-    fallback: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=60',
+    image: 'https://images.unsplash.com/photo-1626178793926-22b28830aa30?w=600&q=80',
     title: 'Profesionalni upravnik zgrade',
     description: 'Zakonski usklađeno upravljanje stambenom zajednicom'
   },
   {
     id: 3,
-    image: 'https://duxdomus.rs/uploads/sredina/tb_3.jpg',
-    fallback: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=60',
+    image: 'https://images.unsplash.com/photo-1769690094086-c7784fba4f8d?w=600&q=80',
     title: 'Višegodišnje iskustvo',
     description: 'Od 2012. godine pružamo vrhunske usluge upravljanja'
   }
@@ -171,15 +173,15 @@ export const services = [
 ];
 
 export const partners = [
-  { id: 1, name: 'Eko Stan Niš', image: 'https://duxdomus.rs/uploads/saradnici/tb_1.jpg', category: 'Tehničko održavanje' },
-  { id: 2, name: 'Eko Stan Plus', image: 'https://duxdomus.rs/uploads/saradnici/tb_2.jpg', category: 'Tehničko održavanje' },
-  { id: 3, name: 'FM Lift', image: 'https://duxdomus.rs/uploads/saradnici/tb_3.jpg', category: 'Lift servisi' },
-  { id: 4, name: 'Elevator', image: 'https://duxdomus.rs/uploads/saradnici/tb_4.jpg', category: 'Lift servisi' },
-  { id: 5, name: 'Elevator Plus', image: 'https://duxdomus.rs/uploads/saradnici/tb_5.jpg', category: 'Lift servisi' },
-  { id: 6, name: 'Euro Lift', image: 'https://duxdomus.rs/uploads/saradnici/tb_6.jpg', category: 'Lift servisi' },
-  { id: 7, name: 'Objedinjena naplata', image: 'https://duxdomus.rs/uploads/saradnici/tb_7.jpg', category: 'Finansije' },
-  { id: 8, name: 'Niš Stan', image: 'https://duxdomus.rs/uploads/saradnici/tb_8.jpg', category: 'Stambene usluge' },
-  { id: 9, name: 'Sistem Servis Niš', image: 'https://duxdomus.rs/uploads/saradnici/tb_9.jpg', category: 'Tehničko održavanje' }
+  { id: 1, name: 'Eko Stan Niš', category: 'Tehničko održavanje', icon: 'Wrench', color: '#2563eb' },
+  { id: 2, name: 'Eko Stan Plus', category: 'Tehničko održavanje', icon: 'Settings', color: '#0891b2' },
+  { id: 3, name: 'FM Lift', category: 'Lift servisi', icon: 'ArrowUpDown', color: '#7c3aed' },
+  { id: 4, name: 'Elevator', category: 'Lift servisi', icon: 'ArrowUpDown', color: '#6d28d9' },
+  { id: 5, name: 'Elevator Plus', category: 'Lift servisi', icon: 'ArrowUpDown', color: '#5b21b6' },
+  { id: 6, name: 'Euro Lift', category: 'Lift servisi', icon: 'ArrowUpDown', color: '#4c1d95' },
+  { id: 7, name: 'Objedinjena naplata', category: 'Finansije', icon: 'CreditCard', color: '#065f46' },
+  { id: 8, name: 'Niš Stan', category: 'Stambene usluge', icon: 'Home', color: '#b45309' },
+  { id: 9, name: 'Sistem Servis Niš', category: 'Tehničko održavanje', icon: 'Cpu', color: '#be123c' }
 ];
 
 export const documents = [
@@ -350,6 +352,170 @@ export const faq = [
     id: 5,
     question: 'Kako se rešavaju hitni problemi?',
     answer: 'U našim zgradama stanari rešavaju sve probleme, u najkraćem mogućem roku, pozivom na jedan telefonski broj koji je non-stop aktivan.'
+  }
+];
+
+export const pricing = {
+  minPrice: 350,
+  currency: 'RSD',
+  unit: 'posebnom delu',
+  note: 'Konačna cena zavisi od ukupnog broja posebnih delova u zgradi.'
+};
+
+export const blogPosts = [
+  {
+    id: 1,
+    slug: 'prava-i-obaveze-stanara',
+    title: 'Prava i obaveze stanara stambene zajednice',
+    excerpt: 'Svaki stanar ima zakonska prava, ali i obaveze prema stambenoj zajednici. Saznajte šta to podrazumeva u praksi.',
+    date: '15. maj 2025.',
+    category: 'Zakon i propisi',
+    readTime: '5 min',
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80',
+    content: `Zakon o stanovanju i održavanju zgrada definiše prava i obaveze svakog stanara koji je član stambene zajednice. Razumevanje ovih pravila ključno je za harmoničan suživot u zgradi.
+
+**Osnovna prava stanara:**
+- Pravo glasa na skupštini stambene zajednice
+- Pravo uvida u finansijsko stanje zgrade
+- Pravo na informisanost o svim radovima i troškovima
+- Pravo na prigovor i žalbu
+
+**Osnivne obaveze stanara:**
+- Redovno plaćanje zajedničkih troškova
+- Učešće u skupštinama i donošenju odluka
+- Poštovanje kućnog reda
+- Briga o zajedničkim delovima zgrade
+
+Ukoliko stanar ne izmiruje redovne troškove, stambena zajednica ima pravo da pokrene sudski postupak naplate. Važno je znati da lično nekorišćenje zajedničkih prostorija (lifta, stepeništa itd.) ne oslobađa obaveze plaćanja.
+
+**Savet:** Uvek tražite pisani zapisnik sa skupštine i čuvajte sve uplatnice.`
+  },
+  {
+    id: 2,
+    slug: 'zasto-profesionalni-upravnik',
+    title: 'Zašto je profesionalni upravnik bolje rešenje od komšije-predsednika?',
+    excerpt: 'Komšija koji "zna sve" vs. stručno lice koje odgovara zakonom. Koja je razlika i zašto je važna?',
+    date: '28. april 2025.',
+    category: 'Upravljanje zgradama',
+    readTime: '7 min',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
+    content: `Mnoge zgrade i danas funkcionišu sa "predsednikom skupštine" koji je komšija volonter. Dok to može funkcionisati u manjim zgradama, u većini slučajeva dolazi do problema.
+
+**Problemi sa volonterskim upravljanjem:**
+- Nema formalnog obrazovanja za ovu ulogu
+- Lični odnosi utiču na odluke
+- Nema finansijske odgovornosti
+- Nedostupnost u hitnim situacijama
+- Neefikasno upravljanje novcem zajednice
+
+**Šta donosi profesionalni upravnik:**
+- Zakonska odgovornost — odgovara imovinom za svoje postupke
+- Povoljniji ugovori sa servisnim firmama (zahvaljujući obimu posla)
+- Transparentno finansijsko izveštavanje
+- Dostupnost 24/7 za hitne slučajeve
+- Stručno posredovanje u konfliktima
+
+Profesionalni upravnik ne mora biti skuplji od starog sistema. Zahvaljujući popustima koje postiže sa partnerima, u praksi često snižava ukupne troškove zgrade.`
+  },
+  {
+    id: 3,
+    slug: 'kako-registrovati-stambenu-zajednicu',
+    title: 'Korak po korak: Kako registrovati stambenu zajednicu',
+    excerpt: 'Registracija stambene zajednice je zakonska obaveza. Evo šta tačno treba uraditi i u kom redosledu.',
+    date: '10. april 2025.',
+    category: 'Administrativni poslovi',
+    readTime: '8 min',
+    image: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&q=80',
+    content: `Od stupanja na snagu Zakona o stanovanju i održavanju zgrada, registracija stambene zajednice postala je obavezna za sve stambene zgrade. Evo kompletnog vodiča.
+
+**Korak 1 — Sazivanje osnivačke skupštine**
+Skupštinu može sazvati svaki vlasnik posebnog dela u zgradi. Pozivi moraju biti dostavljeni svim vlasnicima minimum 8 dana unapred.
+
+**Korak 2 — Izbor upravnika i predsednika skupštine**
+Na skupštini se biraju: predsednik skupštine stanara i upravnik (može biti profesionalni ili volonterski).
+
+**Korak 3 — Registracija u lokalnoj samoupravi**
+Podnosi se zahtev u opštini/gradskoj upravi sa: zapisnikom sa skupštine, podacima o upravniku i adresom zgrade.
+
+**Korak 4 — Pribavljanje matičnog broja i PIB-a**
+Nakon registracije, stambena zajednica dobija pravni subjektivitet, matični broj od Agencije za privredne registre i PIB od Poreske uprave.
+
+**Korak 5 — Otvaranje tekućeg računa**
+Banka otvara tekući račun na osnovu rešenja o registraciji. Sve zajedničke finansije moraju da idu kroz ovaj račun.
+
+Ovaj proces može trajati od 2 do 6 nedjelja. Naša agencija pruža kompletnu pomoć tokom celog procesa.`
+  },
+  {
+    id: 4,
+    slug: 'cesti-problemi-u-zgradama',
+    title: '10 najčešćih problema u stambenim zgradama i kako ih rešiti',
+    excerpt: 'Od prokišnjavanja krovova do neurednih stanara — evo šta su najčešći problemi i ko je odgovoran za njihovo rešavanje.',
+    date: '22. mart 2025.',
+    category: 'Problemi i rešenja',
+    readTime: '6 min',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+    content: `U svakodnevnom radu sa stambenim zgradama, susrećemo se sa istim problemima iznova. Evo pregled 10 najčešćih i ko je odgovoran za njihovo rešavanje.
+
+**1. Prokišnjavanje krova**
+Odgovornost: stambena zajednica, investicioni zahvat, finansira se iz fonda za održavanje.
+
+**2. Kvar lifta**
+Odgovornost: stambena zajednica kroz servisni ugovor. Hitna intervencija mora biti dostupna 24h.
+
+**3. Neplaćanje zajedničkih troškova**
+Rešenje: opomena, zatim sudska naplata. Kamata se obračunava po zakonu.
+
+**4. Buka i ometanje komšija**
+Rešenje: kućni red, opomena, komunalna policija. Upravnik posreduje.
+
+**5. Oštećenja u zajedničkim prostorijama**
+Odgovornost: stanar koji je prouzrokovao štetu. Upravnik dokumentuje i naplaćuje.
+
+**6. Neodržavana higijena**
+Rešenje: ugovor sa firmom za čišćenje ili organizovana dežurstva stanara.
+
+**7. Neispravna grejanja i cevi**
+Podela: instalacije unutar stana — vlasnik stana; zajednički razvodi — stambena zajednica.
+
+**8. Nelegalno zauzimanje zajedničkih prostora**
+Rešenje: opomena, inspekcija, po potrebi sud.
+
+**9. Neregistrovani stanari/podstanari**
+Obaveza: prijaviti u "Objedinjenu naplatu" radi tačnog obračuna troškova.
+
+**10. Neadekvatan fond za održavanje**
+Rešenje: skupština odlučuje o visini mesečnog doprinosa i planu investicionih radova.`
+  },
+  {
+    id: 5,
+    slug: 'finansije-stambene-zajednice',
+    title: 'Kako funkcionišu finansije stambene zajednice',
+    excerpt: 'Ko skuplja novac, ko ima pravo uvida, kako se donose odluke o trošenju — sve što trebate znati o novcu u Vašoj zgradi.',
+    date: '5. mart 2025.',
+    category: 'Finansije',
+    readTime: '6 min',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
+    content: `Finansije stambene zajednice moraju biti transparentne i dostupne svakom stanaru. Evo kako sistem funkcioniše.
+
+**Tekući račun stambene zajednice**
+Sav novac koji stanari uplaćuju ide na zvanični tekući račun stambene zajednice, a ne na privatni račun upravnika. Izvod iz banke mora biti dostupan svim stanarima.
+
+**Fond za tekuće održavanje**
+Mesečni iznosi koje stanari plaćaju (obično 5–15 din/m²) pokrivaju redovne troškove: čišćenje, servisiranje lifta, sijalice, sitne popravke itd.
+
+**Fond za investiciono ulaganje**
+Poseban deo doprinosa odlazi za buduće veće radove: krov, fasada, elektro instalacije. Ovaj novac treba da se čuva na posebnom podračunu.
+
+**Ko odlučuje o trošenju?**
+Skupština stanara odlučuje o svim radovima čija vrednost prelazi određeni prag (obično 3 mesečna doprinosa). Manji troškovi su u nadležnosti upravnika.
+
+**Pravo uvida stanara**
+Svaki stanar ima pravo da traži:
+- Blagajnički izveštaj (mesečni)
+- Izvod iz banke
+- Kopiju svakog ugovora koji je potpisan u ime zgrade
+
+**Savet:** Tražite mesečni finansijski izveštaj od upravnika. Ako ih ne dobijate automatski, to je signal da nešto nije uredu.`
   }
 ];
 
