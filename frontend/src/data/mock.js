@@ -20,12 +20,10 @@ export const companyInfo = {
 };
 
 export const navLinks = [
-  { label: 'Početna', href: '/' },
   { label: 'Usluge', href: '/usluge' },
-  { label: 'Saradnici', href: '/saradnici' },
-  { label: 'Dokumenta', href: '/dokumenta' },
   { label: 'Stambene zgrade', href: '/stambene-zgrade' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Postanite saradnik', href: '/saradnja' },
   { label: 'Kontakt', href: '/kontakt' }
 ];
 
