@@ -40,8 +40,20 @@ const ProtectedAdmin = ({ children }) => {
       <div className="w-8 h-8 border-2 border-[#28a8e0]/30 border-t-[#28a8e0] rounded-full animate-spin" />
     </div>
   );
-  if (!isAuthenticated) return <Navigate to="/admin/login" replace />;
+  if (!isAuthenticated) return <Navigate to="/zscms" replace />;
   return <AdminLayout>{children}</AdminLayout>;
+};
+
+// /zscms root — login or dashboard
+const AdminRoot = () => {
+  const { isAuthenticated, loading } = useAdmin();
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="w-8 h-8 border-2 border-[#28a8e0]/30 border-t-[#28a8e0] rounded-full animate-spin" />
+    </div>
+  );
+  if (!isAuthenticated) return <AdminLogin />;
+  return <AdminLayout><AdminDashboard /></AdminLayout>;
 };
 
 function App() {
@@ -52,10 +64,9 @@ function App() {
           <ScrollToTop />
           <Routes>
             {/* Admin routes — no Navbar/Footer */}
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin" element={<ProtectedAdmin><AdminDashboard /></ProtectedAdmin>} />
-            <Route path="/admin/blog" element={<ProtectedAdmin><AdminBlog /></ProtectedAdmin>} />
-            <Route path="/admin/content" element={<ProtectedAdmin><AdminContent /></ProtectedAdmin>} />
+            <Route path="/zscms" element={<AdminRoot />} />
+            <Route path="/zscms/blog" element={<ProtectedAdmin><AdminBlog /></ProtectedAdmin>} />
+            <Route path="/zscms/content" element={<ProtectedAdmin><AdminContent /></ProtectedAdmin>} />
 
             {/* Public routes */}
             <Route path="*" element={

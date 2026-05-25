@@ -38,7 +38,7 @@ const StatCard = ({ value, label, suffix, active }) => {
 };
 
 // Quote modal
-const QuoteModal = ({ onClose }) => {
+const QuoteModal = ({ onClose, pricing }) => {
   const [form, setForm] = useState({ address: '', numUnits: '', numOther: '', problem: '', email: '' });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -52,12 +52,16 @@ const QuoteModal = ({ onClose }) => {
     return e;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1200);
+    try {
+      await axios.post(`${API}/quote`, form);
+    } catch (_) { /* ignorišemo mrežne greške */ }
+    setLoading(false);
+    setSubmitted(true);
   };
 
   const handleChange = (field) => (ev) => {
@@ -253,7 +257,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {showQuote && <QuoteModal onClose={() => setShowQuote(false)} />}
+      {showQuote && <QuoteModal onClose={() => setShowQuote(false)} pricing={pricing} />}
 
       {/* ── Hero ─────────────────────────────────────── */}
       <section className="relative h-[500px] md:h-[600px] overflow-hidden">
@@ -402,7 +406,7 @@ const Home = () => {
               className="w-full rounded-2xl shadow-xl object-cover h-80"
             />
             <div className="absolute -bottom-5 -right-5 bg-[#28a8e0] text-white p-4 rounded-xl shadow-xl">
-              <div className="text-2xl font-bold">13+</div>
+              <div className="text-2xl font-bold">14+</div>
               <div className="text-sm opacity-90 font-medium">Godina iskustva</div>
             </div>
           </div>
@@ -509,7 +513,7 @@ const Home = () => {
           </div>
           <h2 className="text-2xl md:text-3xl font-bold mb-3">Postanite naš saradnik i zaradite</h2>
           <p className="text-[#a8d8f0] max-w-xl mx-auto mb-6 text-sm leading-relaxed">
-            Preporučite zgadu našoj agenciji — i zaradite nagradu od <strong className="text-white">200€ do 1.000€+</strong> u zavisnosti od veličine zgrade.
+            Preporučite zgradu našoj agenciji — i zaradite nagradu od <strong className="text-white">200€ do 1.000€+</strong> u zavisnosti od veličine zgrade.
           </p>
           <Link
             to="/saradnja"

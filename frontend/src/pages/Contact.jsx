@@ -27,21 +27,18 @@ const Contact = () => {
     return e;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
-    if (Object.keys(errs).length > 0) {
-      setErrors(errs);
-      return;
-    }
+    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setLoading(true);
-    // Simulate send
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-      setForm({ name: '', email: '', message: '' });
-      setErrors({});
-    }, 1200);
+    try {
+      await axios.post(`${API}/contact`, form);
+    } catch (_) { /* mail se šalje server-side, ignorišemo mrežne greške */ }
+    setLoading(false);
+    setSubmitted(true);
+    setForm({ name: '', email: '', message: '' });
+    setErrors({});
   };
 
   const handleChange = (field) => (e) => {

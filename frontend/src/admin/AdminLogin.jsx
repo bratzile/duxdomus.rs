@@ -18,7 +18,7 @@ const AdminLogin = () => {
     setLoading(true);
     try {
       await login(email, password);
-      navigate('/admin');
+      navigate('/zscms');
     } catch (err) {
       setError(err.response?.data?.detail || 'Pogrešan email ili lozinka');
     } finally {
@@ -62,7 +62,7 @@ const AdminLogin = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@duxdomus.rs"
+                  placeholder="Email adresa"
                   required
                   className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#28a8e0]/30 focus:border-[#28a8e0] transition-colors"
                 />

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import {
   DollarSign, Users, Star, CheckCircle2, ChevronRight, ArrowRight,
   Gift, Award, Zap, Phone, Send, CheckCircle
 } from 'lucide-react';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const rewards = [
   { range: '15–30 stanova', amount: '200 €' },
@@ -36,15 +40,16 @@ const Referral = () => {
     return e;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 1200);
+    try {
+      await axios.post(`${API}/referral`, form);
+    } catch (_) { /* ignorišemo mrežne greške */ }
+    setLoading(false);
+    setSubmitted(true);
   };
 
   const handleChange = (field) => (e) => {

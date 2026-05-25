@@ -7,9 +7,9 @@ import {
 } from 'lucide-react';
 
 const navItems = [
-  { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, exact: true },
-  { href: '/admin/blog', label: 'Blog', icon: FileText },
-  { href: '/admin/content', label: 'Sadržaj sajta', icon: Settings },
+  { href: '/zscms', label: 'Dashboard', icon: LayoutDashboard, exact: true },
+  { href: '/zscms/blog', label: 'Blog', icon: FileText },
+  { href: '/zscms/content', label: 'Sadržaj sajta', icon: Settings },
 ];
 
 const AdminLayout = ({ children }) => {
@@ -20,7 +20,7 @@ const AdminLayout = ({ children }) => {
 
   const handleLogout = () => {
     logout();
-    navigate('/admin/login');
+    navigate('/zscms');
   };
 
   const isActive = (item) => {

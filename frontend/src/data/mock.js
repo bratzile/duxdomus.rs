@@ -15,7 +15,7 @@ export const companyInfo = {
     kancelarija: '018/4558-625',
     kancelarijaNote: '(9-15h)'
   },
-  email: 'duxdomus@gmail.com',
+  email: 'duxdomus@yahoo.com',
   mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.0!2d21.9184554!3d43.3381998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4755b164c484bfdb%3A0x3d9e3db5b39a7c79!2sGornjomatejevacka%2098a%2C%20Nis!5e0!3m2!1sen!2srs!4v1680000000000!5m2!1sen!2srs'
 };
 
@@ -72,7 +72,7 @@ export const features = [
 
 export const stats = [
   { value: 350, label: 'Stambenih jedinica', suffix: '+' },
-  { value: 13, label: 'Godina iskustva', suffix: '+' },
+  { value: 14, label: 'Godina iskustva', suffix: '+' },
   { value: 9, label: 'Saradnika', suffix: '' },
   { value: 24, label: 'Sata dostupnosti', suffix: '/7' }
 ];
@@ -358,7 +358,7 @@ export const pricing = {
   minPrice: 350,
   currency: 'RSD',
   unit: 'posebnom delu',
-  note: 'Konačna cena zavisi od ukupnog broja posebnih delova u zgradi.'
+  note: 'Konačna cena formira se na osnovu ukupnog broja posebnih delova u Vašoj zgradi.'
 };
 
 export const blogPosts = [

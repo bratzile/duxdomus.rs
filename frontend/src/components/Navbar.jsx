@@ -34,8 +34,8 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1.5">
               <Phone size={13} className="text-[#28a8e0]" />
-              <a href="tel:+381658430028" className="hover:text-[#28a8e0] transition-colors text-xs font-medium">
-                {companyInfo.phones.aleksa}
+              <a href="tel:+381184558625" className="hover:text-[#28a8e0] transition-colors text-xs font-medium">
+                {companyInfo.phones.kancelarija}
               </a>
             </div>
           </div>
@@ -47,22 +47,12 @@ const Navbar = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative flex-shrink-0">
-                <img
-                  src="https://duxdomus.rs/img/logo.png"
-                  alt="Dux Domus"
-                  className="h-14 w-auto object-contain"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.style.display = 'none';
-                  }}
-                />
-              </div>
-              <div>
-                <div className="font-bold text-xl text-[#0a2d5e] tracking-wide leading-tight">DUX DOMUS</div>
-                <div className="text-xs text-[#28a8e0] font-semibold tracking-widest uppercase">Niš</div>
-              </div>
+            <Link to="/" className="flex items-center group">
+              <img
+                src="/img/logo.png"
+                alt="Dux Domus"
+                className="h-14 w-auto object-contain"
+              />
             </Link>
 
             {/* Desktop navigation */}
