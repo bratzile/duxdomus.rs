@@ -1,0 +1,14 @@
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# PHP fajlovi se serviraju direktno (api.php u /zscms/)
+RewriteCond %{REQUEST_URI} \.php($|\?) [NC]
+RewriteRule ^ - [L]
+
+# Postojeci staticni fajlovi se serviraju direktno
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Sve ostalo (uklj. /zscms, /zscms/login, /blog/...) → React SPA
+RewriteRule ^ /index.html [L]

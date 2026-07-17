@@ -1,0 +1,7 @@
+# Zabrani direktan pristup config.php
+<Files "config.php">
+    Require all denied
+</Files>
+
+# Zabrani directory listing
+Options -Indexes
