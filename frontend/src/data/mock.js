@@ -230,7 +230,7 @@ export const documents = [
 
 export const residentialBuildings = [
   '2. proleterske brigade 22', '7. juli 35', '7. juli 15', '7. juli 31 A',
-  '7. juli 4 B', '9. brigade 57', 'Albanske golgote 4A', 'Aleksandra Milenkovića 5',
+  '9. brigade 57', 'Albanske golgote 4A', 'Aleksandra Milenkovića 5',
   'Aleksandra Nenadovića 8', 'Aleksinačka 1 A', 'Žarka Đurića 33', 'Žikice Jovanovića Španca 7',
   'Župska 5', 'Čarnojevića 25', 'Čarnojevićeva 10', 'Čarnojevićeva 12',
   'Ćirila i Metodija 17A', 'Balkanska 15/1', 'Balkanska 15/2', 'Blagoja Parovića 18',
@@ -286,8 +286,8 @@ export const residentialBuildings = [
   'Nikole Kopernika 33', 'Nikole Kopernika 40', 'Nikole Kopernika 42', 'Nikole Kopernika 59',
   'Nikole Pašića 48', 'Nikole Pašića 50', 'Njegoševa 35', 'Nova Železnička kolonija 12 D',
   'Nova železnička kolonija 10/1', 'Nova železnička kolonija 10/2', 'Nova železnička kolonija 6', 'Obrenovićeva 124 G',
-  'Obrenovićeva 2', 'Obrenovićeva 59-1', 'Obrenovićeva 59-2', 'Orlovića Pavla 7',
-  'Orlovića Pavla 7 B', 'Pantalejska 75 A', 'Pariske komune 23', 'Pariske komune 7',
+  'Obrenovićeva 2', 'Obrenovićeva 59-1', 'Obrenovićeva 59-2',
+  'Pantalejska 75 A', 'Pariske komune 23', 'Pariske komune 7',
   'Pariske komune 9', 'Partizanskih kurira 2A', 'Patrisa Lumumbe 7', 'Pavla Jurišića Šturma 3',
   'Petra Balje 1', 'Petra Balje 2', 'Petra Vučinića 16', 'Prijezdina 14',
   'Prijezdina 7', 'Primorska 4', 'Prvomajska 1', 'Prvomajska 9',
