@@ -58,40 +58,44 @@ const AdminRoot = () => {
 
 function App() {
   return (
-    <AdminProvider>
-      <div className="App">
-        <BrowserRouter>
-          <ScrollToTop />
-          <Routes>
-            {/* Admin routes — no Navbar/Footer */}
-            <Route path="/zscms" element={<AdminRoot />} />
-            <Route path="/zscms/blog" element={<ProtectedAdmin><AdminBlog /></ProtectedAdmin>} />
-            <Route path="/zscms/content" element={<ProtectedAdmin><AdminContent /></ProtectedAdmin>} />
+    <div className="App">
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          {/* Admin routes — wrapped in AdminProvider, no Navbar/Footer */}
+          <Route path="/zscms/*" element={
+            <AdminProvider>
+              <Routes>
+                <Route index element={<AdminRoot />} />
+                <Route path="blog" element={<ProtectedAdmin><AdminBlog /></ProtectedAdmin>} />
+                <Route path="content" element={<ProtectedAdmin><AdminContent /></ProtectedAdmin>} />
+              </Routes>
+            </AdminProvider>
+          } />
 
-            {/* Public routes */}
-            <Route path="*" element={
-              <div className="flex flex-col min-h-screen">
-                <Navbar />
-                <main className="flex-1">
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/usluge" element={<Services />} />
-                    <Route path="/saradnici" element={<Partners />} />
-                    <Route path="/dokumenta" element={<Documents />} />
-                    <Route path="/stambene-zgrade" element={<ResidentialBuildings />} />
-                    <Route path="/blog" element={<Blog />} />
-                    <Route path="/blog/:slug" element={<BlogPostRoute />} />
-                    <Route path="/saradnja" element={<Referral />} />
-                    <Route path="/kontakt" element={<Contact />} />
-                  </Routes>
-                </main>
-                <Footer />
-              </div>
-            } />
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </AdminProvider>
+          {/* Public routes — completely independent of AdminProvider */}
+          <Route path="*" element={
+            <div className="flex flex-col min-h-screen">
+              <Navbar />
+              <main className="flex-1">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/usluge" element={<Services />} />
+                  <Route path="/saradnici" element={<Partners />} />
+                  <Route path="/dokumenta" element={<Documents />} />
+                  <Route path="/stambene-zgrade" element={<ResidentialBuildings />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<BlogPostRoute />} />
+                  <Route path="/saradnja" element={<Referral />} />
+                  <Route path="/kontakt" element={<Contact />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+          } />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
